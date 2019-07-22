@@ -9,7 +9,14 @@ namespace ConfigurationExample.App.Services
 		/// <summary>
 		///     Migrations collection ordered by version.
 		/// </summary>
-		private readonly IReadOnlyCollection<Migration> _migrations = new Migration[0]
+		private readonly IReadOnlyCollection<Migration> _migrations = new Migration[]
+			{
+				new Migration(new Version(1, 1, 0),
+					() =>
+					{
+						//...
+					})
+			}
 			.OrderBy(migration => migration.Version)
 			.ToArray();
 
