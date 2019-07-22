@@ -49,6 +49,13 @@ namespace ConfigurationExample.App.Configuration.ViewModels
 			return base.SaveAsync();
 		}
 
+		protected override Task<Boolean> CancelAsync()
+		{
+			_applicationConfigurationProviderService.LoadSettingsFromStorage();
+
+			return base.CancelAsync();
+		}
+
 		[UsedImplicitly]
 		private void OnSelectedLanguageChanged()
 		{
